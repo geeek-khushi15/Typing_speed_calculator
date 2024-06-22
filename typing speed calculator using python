@@ -1,0 +1,36 @@
+
+#typing speed calculator using python 
+import time
+from time import *
+import random as rn
+
+def mistake(partest,usertest):
+  error=0
+  for i in range(len(partest)):
+    try:
+       if partest[i]!=usertest[i]:
+           error = error +1
+    except:
+          error = error +1
+  return error
+
+def speed_time( time_s,time_e,userinput):
+  time_delay = time_e - time_s
+  time_r = round(time_delay,2)
+  wpm = len(userinput)/ time_r
+  return round(wpm)
+
+test = ["A good typing speed in the workplace is around 40 to 60 WPM.","My name is Khushi and I am a software developer","I am persuing My BTech Degeree in Computer Science and Engineering"]
+test1= rn.choice(test)
+print("###### TYPING SPEED CALCULATOR ######")
+print(test1)
+print()
+print()
+time1 = time()
+testinput = input("  START TYPING The ABOVE String ")
+time2 = time()
+print()
+
+print("speed : ",speed_time(time1,time2,testinput),"WPS")
+print("mistakes : ",mistake(test1,testinput),"Mistakes")
+
